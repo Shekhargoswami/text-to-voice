@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+</head>
+<style>body {
+
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+  background-color: #aa6e6e;
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+}
+textarea {
+  width: 80%;
+  height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #b26f6f;
+  outline: none;
+}
+button {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}</style>
+<body>
+    <script src="script.js"></script>
+    <div class="container">
+        <div class="box">
+            <h2>Text to voice</h2>
+            <textarea id="input" placeholder=" enter text"></textarea>
+            <br>
+            <button onclick="convert()">convert</button>
+        </div>
+    </div>
+    <script>function convert(){
+      let input = document.getElementById("input").value; // getting the input from the user
+      if(input.trim() === ""){
+          alert("Please enter some text");// if the input is empty then alert the user
+          return;
+      }
+      let voice = new SpeechSynthesisUtterance(input); // creating a new instance of SpeechSynthesisUtterance
+      window.speechSynthesis.speak(voice); // speaking the text
+      // whidow.speechSynthesis is the api that converts text to voice
+      //.speak() is the method that speaks the text
+  
+  }</script>
+</body>
+</html>
